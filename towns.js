@@ -21,10 +21,16 @@ function deleteTown() {
 }
 
 function addTown() {
-    let townName = $('#townNameForAdd').val();
-    $('#townNameForAdd').val('');
-    $('#towns').append($('<option>').text(townName));
-    $('#result').text(townName + " added.");
+	let townName = $('#townNameForAdd').val();
+	$('#townNameForAdd').val('');
+	$('#towns').append($('<option>').text(townName));
+	$('#result').text(townName + " added.");
+
+    $(document).ready(function() {
+
+        $('#btnAdd').click(addTown);
+    });
+    
 }
 
 function showMessage(msg) {
@@ -33,6 +39,7 @@ function showMessage(msg) {
         $('#result').hide('blind', {}, 500);
     }, 3000);
 }
+
 
 function shuffleTowns() {
     let towns = $('#towns option').toArray();
